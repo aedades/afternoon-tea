@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afternoon Tea Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f7f9f4 0%, #eef2e8 100%);
+            color: #3a4a3e;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(252, 253, 251, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(168, 190, 162, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #6b8a6b;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #8b9d8b;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        h2 {
+            color: #6b8a6b;
+            font-size: 2em;
+            margin: 30px 0 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #a8bea2;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #a8bea2;
+        }
+
+        h3 {
+            color: #7a907a;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-number {
+            background: #a8bea2;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .tea-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f9faf8 0%, #f2f5f0 100%);
+            border-radius: 15px;
+            border-left: 4px solid #a8bea2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .tea-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .tea-name {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #6b8a6b;
+            margin-bottom: 8px;
+        }
+
+        .tea-description {
+            color: #7a907a;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .menu-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fcfdfb 0%, #f7f9f4 100%);
+            border-radius: 15px;
+            border: 1px solid rgba(168, 190, 162, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-color: #a8bea2;
+        }
+
+        .item-name {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #6b8a6b;
+            margin-bottom: 8px;
+        }
+
+        .item-description {
+            color: #7a907a;
+            margin-bottom: 12px;
+        }
+
+        .pairing {
+            font-style: italic;
+            color: #6b8a6b;
+            background: rgba(168, 190, 162, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border-left: 3px solid #a8bea2;
+            margin-top: 10px;
+        }
+
+        .pairing::before {
+            content: "🫖 ";
+            margin-right: 5px;
+        }
+
+        .decorative-divider {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.5em;
+            color: #a8bea2;
+        }
+
+        /* Hand-drawn style graphics */
+        .tea-icon, .sandwich-icon, .scone-icon, .sweet-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            opacity: 0.6;
+        }
+
+        .section-icon {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 1.7em;
+            }
+        }
+
+        .tea-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Afternoon Tea</h1>
+        <p class="subtitle">An elegant selection of teas and delicate treats</p>
+
+        <h2>Tea Service</h2>
+        <div class="tea-grid">
+            <div class="tea-item">
+                <div class="tea-name">Earl Grey</div>
+                <div class="tea-description">A classic black tea with distinctive bergamot citrus notes, creating a bright and aromatic cup with floral undertones.</div>
+            </div>
+
+            <div class="tea-item">
+                <div class="tea-name">Darjeeling</div>
+                <div class="tea-description">A delicate black tea with muscatel notes and a light, refined character that won't overpower subtle flavors.</div>
+            </div>
+
+            <div class="tea-item">
+                <div class="tea-name">Jasmine Green</div>
+                <div class="tea-description">A fragrant green tea scented with jasmine flowers, offering floral aromatics and a clean, refreshing finish.</div>
+            </div>
+
+            <div class="tea-item">
+                <div class="tea-name">Rooibos (Red Bush)</div>
+                <div class="tea-description">A naturally caffeine-free herbal tea with vanilla and honey notes, offering a warm, sweet, and gentle cup.</div>
+            </div>
+        </div>
+
+        <div class="decorative-divider">❦ ❦ ❦</div>
+
+        <h2>Menu Progression</h2>
+
+        <h3><span class="course-number">1</span>Savory Finger Sandwiches</h3>
+
+        <div class="menu-item">
+            <div class="item-name">Smoked Salmon & Cream Cheese</div>
+            <div class="item-description">Fresh smoked salmon with herb cream cheese on delicate bread, trimmed of crusts</div>
+            <div class="pairing">Pairs beautifully with Earl Grey - the citrus notes complement the salmon</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-name">Cucumber & Butter</div>
+            <div class="item-description">Paper-thin cucumber slices with fresh butter on soft white bread - a British classic</div>
+            <div class="pairing">Perfect with Darjeeling - its gentle nature enhances delicate tastes</div>
+        </div>
+
+        <h3><span class="course-number">2</span>Fresh Baked Scones</h3>
+
+        <div class="menu-item">
+            <div class="item-name">Vanilla Scones</div>
+            <div class="item-description">Warm, fluffy vanilla scones served with strawberry jam and tangy lemon curd for the perfect balance of sweet and tart</div>
+            <div class="pairing">Excellent with Darjeeling for delicate flavors, or Earl Grey where the citrus complements the lemon curd</div>
+        </div>
+
+        <h3><span class="course-number">3</span>Sweet Treats</h3>
+
+        <div class="menu-item">
+            <div class="item-name">Ube Cookies</div>
+            <div class="item-description">Homemade purple yam cookies with a delicate, sweet potato-vanilla flavor and beautiful violet color</div>
+            <div class="pairing">Pairs perfectly with Rooibos - the vanilla notes create perfect harmony</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-name">Classic Shortbread</div>
+            <div class="item-description">Buttery, crumbly traditional Scottish shortbread - the perfect sweet finish</div>
+            <div class="pairing">Lovely with Jasmine Green - cleanses the palate beautifully between bites</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-name">French Macarons</div>
+            <div class="item-description">Delicate almond cookies with smooth ganache centers in chocolate, raspberry, vanilla, and salted caramel</div>
+            <div class="pairing">Versatile pairing - Jasmine Green cleanses between flavors, or Rooibos complements vanilla varieties</div>
+        </div>
+    </div>
+</body>
+</html>
